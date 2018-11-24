@@ -1,0 +1,7 @@
+<App>
+	<ClientPanel>
+		<StackPanel>
+			<Text>물고기앱</Text>
+		</StackPanel>
+	</ClientPanel>
+</App>
