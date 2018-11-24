@@ -1,25 +1,30 @@
-var Alerts = require("FuseJS/Alerts");
+var Common = require("Modules/Common");
+var FileSystem = require("FuseJS/FileSystem");
 var Observable = require("FuseJS/Observable");
 var email = Observable("");
 var password = Observable("");
-var upgrade_password = Observable("");
-var nickname = Observable("");
-// var url = "http://localhost:4567/get_all_tasks"
-// var url = "https://arcane-gorge-90774.herokuapp.com"
-var url = "http://localhost:4567"
 var result_msg = Observable("");
 
+function jump_to_signup(){
+  router.goto("SignupPage");
+}
+
 function login(){
-  response = fetch(url + "/sign_in", 
+  response = fetch(Common.url + "/sign_in", 
                 {  method: 'POST', 
                   headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
                      body: "email=" + email.value + "&password=" + password.value})
               .then(function(response){ return response.json();})
               .then(function(data_from_server){
-                  if (data_from_server == "error_1"){
-                    result_msg.value = "아이디/비번이 다릅니다." 
-                  } else {
+                  if (data_from_server.hasOwnProperty('token')){
+                    FileSystem.writeTextToFile(Common.token_path, data_from_server['token'])
                     router.goto("MainPage");
+                  }else{
+                    if (data_from_server == "error_1_6"){
+                      result_msg.value = "아이디가 사용중입니다"
+                    }else{
+                      result_msg.value = data_from_server
+                    }
                   }
               });
 }
@@ -28,7 +33,6 @@ module.exports = {
   login: login,
   email: email, 
   password: password,
-  upgrade_password: upgrade_password,
-  nickname: nickname,
-  login: login
+  login: login, 
+  jump_to_signup: jump_to_signup
 };

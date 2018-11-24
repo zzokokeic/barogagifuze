@@ -1,10 +1,16 @@
+var Common = require("Modules/Common");
+var FileSystem = require("FuseJS/FileSystem");
 var Observable = require("FuseJS/Observable");
 var hasProfile = Observable(false);
-var token = Observable("");
 
-router.goto("LoginPage");
+FileSystem.readTextFromFile(Common.token_path)
+    .then(function(text) {
+      router.goto("MainPage");
+    })
+    .catch(function(error) {
+      router.goto("LoginPage");
+    });
 
 module.exports = {
-	token: token,
 	hasProfile: hasProfile
 };

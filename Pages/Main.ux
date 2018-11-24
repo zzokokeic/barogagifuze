@@ -1,8 +1,11 @@
 <Page ux:Class="MainPage" ux:Name="MainPage">
   <Router ux:Dependency="router" />
+  <JavaScript File="Main.js" />
 	<ScrollView>
 		<StackPanel>
 			<Text>내 물고기 리스트</Text>
+      <Button Text="물고기사러가기" Clicked="{jump_to_get_fish}" />
+      <Button Text="로그아웃" Clicked="{logout}" />
 		</StackPanel>
 	</ScrollView>
 </Page>

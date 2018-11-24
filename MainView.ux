@@ -4,7 +4,9 @@
   <ClientPanel>
     <PageControl >
       <LoginPage router="router"/>
+      <SignupPage router="router"/>
       <MainPage router="router"/>
+      <ShopPage router="router"/>
     </PageControl>
   </ClientPanel>
 </App>

@@ -11,6 +11,7 @@
 			<TextBox Value="{password}" IsPassword="true" />
 
       <Button Text="로그인" Clicked="{login}" />
+      <Button Text="회원가입 하러 가기" Clicked="{jump_to_signup}" />
 		</StackPanel>
 	</ScrollView>
 </Page>
