@@ -1,0 +1,10 @@
+<Page ux:Class="ShopPage" ux:Name="ShopPage">
+  <Router ux:Dependency="router" />
+  <JavaScript File="Shop.js" />
+	<ScrollView>
+		<StackPanel>
+			<Text>물고기를 사십시오</Text>
+      <Button Text="돌아가기" Clicked="{back_to_myfish}" />
+		</StackPanel>
+	</ScrollView>
+</Page>

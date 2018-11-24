@@ -1,0 +1,26 @@
+<Page ux:Class="SignupPage" ux:Name="SignupPage">
+  <Router ux:Dependency="router" />
+  <JavaScript File="Signup.js" />
+	<ScrollView>
+		<StackPanel>
+      <Text Value="{result_msg}" />
+			<Text>Email:</Text>
+			<TextBox Value="{email}" />
+
+			<Text>Nick Name:</Text>
+			<TextBox Value="{nickname}" />
+
+			<Text>Password:</Text>
+			<TextBox Value="{password}" IsPassword="true" />
+
+			<Text>Password Confirm:</Text>
+			<TextBox Value="{password_confirm}" IsPassword="true" />
+
+			<Text>Upgrade Password</Text>
+			<TextBox Value="{upgrade_password}" IsPassword="true" />
+
+      <Button Text="회원가입" Clicked="{signup}" />
+      <Button Text="로그인하러 가기" Clicked="{jump_to_login}" />
+		</StackPanel>
+	</ScrollView>
+</Page>
