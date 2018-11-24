@@ -1,7 +1,10 @@
 <App>
-	<ClientPanel>
-		<StackPanel>
-			<Text>물고기앱</Text>
-		</StackPanel>
-	</ClientPanel>
+  <Router ux:Name="router"/>
+  <JavaScript File="MainView.js" />
+  <ClientPanel>
+    <PageControl >
+      <LoginPage router="router"/>
+      <MainPage router="router"/>
+    </PageControl>
+  </ClientPanel>
 </App>

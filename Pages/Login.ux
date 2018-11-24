@@ -1,0 +1,16 @@
+<Page ux:Class="LoginPage" ux:Name="LoginPage">
+  <Router ux:Dependency="router" />
+  <JavaScript File="Login.js" />
+	<ScrollView>
+		<StackPanel>
+      <Text Value="{result_msg}" />
+			<Text>Email:</Text>
+			<TextBox Value="{email}" />
+
+			<Text>Password:</Text>
+			<TextBox Value="{password}" IsPassword="true" />
+
+      <Button Text="로그인" Clicked="{login}" />
+		</StackPanel>
+	</ScrollView>
+</Page>
